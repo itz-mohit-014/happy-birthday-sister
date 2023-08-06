@@ -42,9 +42,9 @@
 
       <div class="video-section">
         <button onclick="playVideo()">Play Video</button>
-
+        <div id="loading-animation"></div>
         <video id="myVideo">
-          <source src="./happy birthday video invitaion.mp4" type="video/mp4" />
+          <source src="./bday-video.mp4" type="video/mp4" id="video" controls />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -55,6 +55,12 @@
         var video = document.getElementById("myVideo");
         video.play();
       }
+
+      document
+        .getElementById("video")
+        .addEventListener("loadeddata", function () {
+          document.getElementById("loading-animation").remove();
+        });
     </script>
   </body>
 </html>
