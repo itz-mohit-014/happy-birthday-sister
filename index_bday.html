@@ -46,6 +46,7 @@
           <source src="./bday-video.mp4" type="video/mp4" id="video" />
           Your browser does not support the video tag.
         </video>
+        <div id="loading-animation"></div>
       </div>
     </div>
 
@@ -55,16 +56,31 @@
       //   video.play();
       // }
       // onclick="playVideo()"
+      document.addEventListener("DOMContentLoaded", () => {
+        const playPauseButton = document.getElementById("playPauseButton");
+        const video = document.querySelector("video");
 
-      const playPauseButton = document.getElementById("playPauseButton");
-      const video = document.querySelector("video");
+        playPauseButton.addEventListener("click", () => {
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
 
-      playPauseButton.addEventListener("click", () => {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        const loadingAnimation = document.getElementById("loading-animation");
+
+        // Show loading animation when video starts loading
+        video.addEventListener("loadstart", () => {
+          loadingAnimation.style.display = "block";
+        });
+
+        // Hide loading animation when video has loaded
+        video.addEventListener("loadeddata", () => {
+          loadingAnimation.style.display = "none";
+        });
+
+        // Your JavaScript code here
       });
     </script>
   </body>
