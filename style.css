@@ -247,7 +247,7 @@ footer a{
 
 .video-section > video{
     width: 95%;
-    height: 100%;
+    height: auto;
  }
 
  .video-section > button{

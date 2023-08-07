@@ -41,19 +41,31 @@
       </div>
 
       <div class="video-section">
-        <button onclick="playVideo()">Play Video</button>
+        <button id="playPauseButton">Play/Pause Video</button>
         <video id="myVideo" autoplay>
-          <source src="./bday-video.mp4" type="video/mp4" id="video" autoplay />
+          <source src="./bday-video.mp4" type="video/mp4" id="video" />
           Your browser does not support the video tag.
         </video>
       </div>
     </div>
 
     <script>
-      function playVideo() {
-        var video = document.getElementById("myVideo");
-        video.play();
-      }
+      // function playVideo() {
+      //   var video = document.getElementById("myVideo");
+      //   video.play();
+      // }
+      // onclick="playVideo()"
+
+      const playPauseButton = document.getElementById("playPauseButton");
+      const video = document.querySelector("video");
+
+      playPauseButton.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
     </script>
   </body>
 </html>
