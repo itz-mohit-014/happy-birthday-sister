@@ -245,8 +245,9 @@ footer a{
 }
 
 .video-section > video{
-    width: 95%;
+    width: 90%;
     height: auto;
+    border: 4px inset  dodgerblue;
     padding-bottom: 10px;
  }
 
